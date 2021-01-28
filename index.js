@@ -15,7 +15,7 @@ const { GitHub, context } = require("@actions/github");
       .getInput("labels")
       .split("\n")
       .filter((x) => x !== "");
-    const issueNumber = context.payload.number;
+    const issueNumber = core.getInput("issue_number");
 
     core.info(`Add labels: ${labels} to ${owner}/${repo}#${issueNumber}`);
 
